@@ -1,0 +1,15 @@
+---
+tap_install:
+  secrets:
+    eso:
+      vault:
+        server: http://vault.lab.tapmedas.com:8200
+        namespace: ""
+        auth:
+          kubernetes:
+            mountPath: tapazfull
+            role: tapazfull--tap-install-secrets
+      remote_refs:
+        tap_sensitive_values:
+          sensitive_tap_values_yaml:
+            key: secret/dev/tapazfull/tap/sensitive-values.yaml
