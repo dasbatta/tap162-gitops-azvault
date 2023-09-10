@@ -28,8 +28,8 @@ tap_install:
             memory: 1Gi
       gitops_install:
         ref: origin/main
-        subPath: scripts/ns-provisioner
-        url: https://github.com/dasbatta/tap162-gitops-azvault.git      
+        subPath: ns-provisioner-samples/gitops-install
+        url: https://github.com/vmware-tanzu/application-accelerator-samples.git      
 
     tap_gui:
       ingressEnabled: "true"
