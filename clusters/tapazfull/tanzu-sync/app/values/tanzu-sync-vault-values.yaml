@@ -11,6 +11,7 @@ secrets:
     remote_refs:
       sync_git:
         ssh:
+        # TODO: Fill in your configuration for ssh or basic auth here (see tanzu-sync/app/config/.tanzu-managed/schema--eso.yaml)
         private_key:
           key: secret/dev/tapazfull/tanzu-sync/sync-git/ssh
           property: privatekey
