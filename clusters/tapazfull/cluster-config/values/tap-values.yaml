@@ -26,10 +26,7 @@ tap_install:
           defaultRequest:
             cpu: 100m
             memory: 1Gi
-      gitops_install:
-        ref: origin/main
-        subPath: ns-provisioner-samples/gitops-install
-        url: https://github.com/vmware-tanzu/application-accelerator-samples.git      
+             
     tap_gui:
       ingressEnabled: "true"
       ingressDomain: "tapmedas.com"
