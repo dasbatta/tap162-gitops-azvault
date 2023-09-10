@@ -13,8 +13,6 @@ tap_install:
       ingress_issuer: "selfsigned-cluster-issuer"
       image_registry:
         project_path: "tapazreg.azurecr.io/tap163-build"
-        username: tapazreg
-        password: "nqa2Lvxi7thGlYDR/iKvbUhYoat0I8w595qPkimxd1+ACRA49Rxw"
 
     supply_chain: basic
 
