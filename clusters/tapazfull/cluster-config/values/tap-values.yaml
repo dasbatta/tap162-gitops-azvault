@@ -17,7 +17,7 @@ tap_install:
     supply_chain: basic
 
     namespace_provisioner:
-      controller: true
+      controller: false
       default_parameters:
         limits:
           default:
@@ -26,7 +26,11 @@ tap_install:
           defaultRequest:
             cpu: 100m
             memory: 1Gi
-             
+      gitops_install:
+        ref: origin/main
+        subPath: scripts/ns-provisioner
+        url: https://github.com/dasbatta/tap162-gitops-azvault.git      
+
     tap_gui:
       ingressEnabled: "true"
       ingressDomain: "tapmedas.com"
