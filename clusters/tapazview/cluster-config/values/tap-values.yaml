@@ -16,6 +16,8 @@ tap_install:
           type: LoadBalancer # NodePort can be used if your Kubernetes cluster doesn't support LoadBalancing.
 
     tap_gui:
+      auth:
+        allowGuestAccess: true
 #      tls:
 #        namespace: tap-install
 #        secretName: tap-gui-cert-rehan
