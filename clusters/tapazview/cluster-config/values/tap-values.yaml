@@ -1,0 +1,51 @@
+---
+tap_install:
+  values:
+    profile: view
+    ceip_policy_disclosed: true # Installation fails if this is not set to true. Not a string.
+
+    shared:
+      ingress_domain: view.tapmedas.com
+      #ingress_issuer: letsencrypt-production
+      image_registry:
+        project_path: "tapazreg.azurecr.io/tap163-build"
+      
+    contour:
+      envoy:
+        service:
+          type: LoadBalancer # NodePort can be used if your Kubernetes cluster doesn't support LoadBalancing.
+
+    tap_gui:
+#      tls:
+#        namespace: tap-install
+#        secretName: tap-gui-cert-rehan
+      ingressEnabled: "true"
+      ingressDomain: "view.tapmedas.com"
+      metadataStoreAutoconfiguration: true
+#      service_type: ClusterIP
+      app_config:
+        app:
+          baseUrl: https://tap-gui.view.tapmedas.com
+        catalog:
+          locations:
+            - type: url
+              target: https://github.com/pakiheart/yel-catalog/blob/main/catalog-info.yaml
+        backend:
+          baseUrl: https://tap-gui.view.tapmedas.com
+          cors:
+            origin: https://tap-gui.view.tapmedas.com
+        
+
+    appliveview:
+      ingressEnabled: true
+      # tls:
+      #   namespace: tap-install
+      #   secretName: tap-gui-cert-rehan
+
+    metadata_store:
+      ingress_enabled: "true"
+      app_service_type: "ClusterIP"
+      ns_for_export_app_cert: "*"
+      # tls:
+      #   namespace: tap-install
+      #   secretName: tap-gui-cert-rehan
