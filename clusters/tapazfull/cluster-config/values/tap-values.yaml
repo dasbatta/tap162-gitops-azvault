@@ -35,6 +35,8 @@ tap_install:
       ingressEnabled: "true"
       ingressDomain: "tapmedas.com"
       app_config:
+        auth:
+          allowGuestAccess: true      
         app:
           baseUrl: https://tap-gui.lab.tapmedas.com
         catalog:
