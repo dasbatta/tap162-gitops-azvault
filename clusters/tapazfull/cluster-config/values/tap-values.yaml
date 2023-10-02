@@ -10,7 +10,7 @@ tap_install:
           type: LoadBalancer
     shared:
       ingress_domain: "tapmedas.com"
-      ingress_issuer: "selfsigned-cluster-issuer"
+#      ingress_issuer: "selfsigned-cluster-issuer"
       image_registry:
         project_path: "tapazreg.azurecr.io/tap163-build"
 
