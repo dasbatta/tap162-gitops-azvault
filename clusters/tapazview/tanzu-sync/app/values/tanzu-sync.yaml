@@ -1,0 +1,7 @@
+---
+git:
+  url: git@github.com:dasbatta/tap162-gitops-azvault.git
+  ref: origin/daswork
+  sub_path: clusters/tapazview/cluster-config
+tap_package_repository:
+  oci_repository: tapazreg.azurecr.io/tap162-images/tap-packages
