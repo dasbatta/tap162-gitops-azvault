@@ -2,10 +2,10 @@
 apiVersion: secretgen.carvel.dev/v1alpha1
 kind: SecretExport
 metadata:
-  name: sync-git-ssh
+  name: sync-git-1
   namespace: tanzu-sync
   annotations:
-    kapp.k14s.io/change-group: se/sync-git-ssh
+    kapp.k14s.io/change-group: se/sync-git-1
     kapp.k14s.io/change-rule.0: "upsert after upserting eso/tap-sensitive-values"  
 spec:
   toNamespaces:
@@ -15,10 +15,10 @@ spec:
 apiVersion: secretgen.carvel.dev/v1alpha1
 kind: SecretImport
 metadata:
-  name: sync-git-ssh
+  name: sync-git-1
   namespace: tap-install
   annotations:
-    kapp.k14s.io/change-group: se/sync-git-ssh
+    kapp.k14s.io/change-group: se/sync-git-1
     kapp.k14s.io/change-rule.0: "upsert after upserting tanzu-sync-secrets"    
 spec:
   fromNamespace: tanzu-sync
