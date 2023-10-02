@@ -18,6 +18,6 @@ spec:
     type: kubernetes.io/ssh-auth
   data:
     - secretKey: ssh-privatekey
-      remoteRef: #@ data.values.secrets.eso.remote_refs.sync_git_ssh.ssh_private_key
+      remoteRef: #@ refs.sync_git.ssh.private_key if refs.sync_git else refs.sync_git_ssh.ssh_private_key
     - secretKey: ssh-knownhosts
-      remoteRef: #@ data.values.secrets.eso.remote_refs.sync_git_ssh.ssh_known_hosts
+      remoteRef: #@ refs.sync_git.ssh.known_hosts if refs.sync_git else refs.sync_git_ssh.ssh_known_hosts
