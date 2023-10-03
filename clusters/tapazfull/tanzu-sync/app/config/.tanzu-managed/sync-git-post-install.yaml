@@ -9,7 +9,7 @@
 apiVersion: external-secrets.io/v1beta1
 kind: ExternalSecret
 metadata:
-  name: sync-git-1
+  name: sync-git-post-install
   namespace: tanzu-sync
   annotations:
     kapp.k14s.io/change-group: tanzu-sync-secrets
