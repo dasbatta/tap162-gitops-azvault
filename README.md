@@ -6,3 +6,41 @@ This reference implementation is pre-configured to install Tanzu Application Pla
 
 For detailed documentation, refer to [VMware Tanzu Application Platform Product Documentation](https://docs.vmware.com/en/VMware-Tanzu-Application-Platform/1.5/tap/install-gitops-intro.html).
 
+excluded_packages:
+    - learningcenter.tanzu.vmware.com
+    - workshops.learningcenter.tanzu.vmware.com
+    - api-portal.tanzu.vmware.com
+    - accelerator.apps.tanzu.vmware.com
+    - apiserver.appliveview.tanzu.vmware.com
+    - local-source-proxy.apps.tanzu.vmware.com
+    - tap-gui.tanzu.vmware.com
+    - crossplane.tanzu.vmware.com
+    - bitnami.services.tanzu.vmware.com
+cnrs:
+    domain_template: '{{.Name}}-{{.Namespace}}.{{.Domain}}'
+    default_tls_secret: tap-install/cluster-external-cert-tls-cert
+    ingress_issuer: ""
+
+excluded_packages:
+    - crossplane.tanzu.vmware.com
+    - bitnami.services.tanzu.vmware.com
+
+    tap.fiservref1.net
+    .fiservref2.net 
+
+build:
+    env:
+    - name: BP_NODE_RUN_SCRIPTS
+      value: build
+    - name: NODE_ENV
+      value: development
+    - name: BP_NGINX_VERSION
+      value: "1.32.3"
+    - name: BP_WEB_SERVER
+      value: nginx
+    - name: BP_WEB_SERVER_ROOT
+      value: dist
+    - name: BP_WEB_SERVER_ENABLE_PUSH_STATE
+      value: true
+
+
