@@ -14,8 +14,9 @@ tap_install:
       image_registry:
         project_path: "tapazreg.azurecr.io/tap163-build"
 
-    supply_chain: basic
-
+    supply_chain: testing
+#    supply_chain: basic
+#    supply_chain: testing_scanning
     namespace_provisioner:
       controller: false
       default_parameters:
