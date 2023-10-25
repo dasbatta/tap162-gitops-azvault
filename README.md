@@ -44,3 +44,11 @@ build:
       value: true
 
 
+tanzu apps workload apply tanzu-java-web-app \
+ --git-repo https://github.com/vmware-tanzu-learning/tanzu-java-web-app \
+ --git-branch main \
+ --label apps.tanzu.vmware.com/has-tests=true \
+ --label app.kubernetes.io/part-of=tanzu-java-web-app \
+ --type web \
+ --namespace dev \
+ --yes
