@@ -52,3 +52,8 @@ tanzu apps workload apply tanzu-java-web-app \
  --type web \
  --namespace dev \
  --yes
+
+
+---- 
+Scan 2.0 - Gitops
+tanzu package available get app-scanning.apps.tanzu.vmware.com/0.1.0-beta.137 --values-schema --namespace tap-install
