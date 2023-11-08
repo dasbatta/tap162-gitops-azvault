@@ -1,0 +1,50 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: metadata-store-secrets
+---
+apiVersion: v1
+kind: Secret
+type: Opaque
+metadata:
+  name: store-ca-cert
+  namespace: metadata-store-secrets
+data:
+  ca.crt: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSURIekNDQWdlZ0F3SUJBZ0lSQVBEVjJ2NUlCVFhVd1Facmxhc0NqSUl3RFFZSktvWklodmNOQVFFTEJRQXcKS1RFbk1DVUdBMVVFQXhNZWRHRndMV2x1WjNKbGMzTXRjMlZzWm5OcFoyNWxaQzF5YjI5MExXTmhNQjRYRFRJegpNVEF3TWpBMU1UQTFObG9YRFRJek1USXpNVEExTVRBMU5sb3dLVEVuTUNVR0ExVUVBeE1lZEdGd0xXbHVaM0psCmMzTXRjMlZzWm5OcFoyNWxaQzF5YjI5MExXTmhNSUlCSWpBTkJna3Foa2lHOXcwQkFRRUZBQU9DQVE4QU1JSUIKQ2dLQ0FRRUE0dkxoVjJXVVRUNXJheURSMVNxeE10cWhLNjVYcC9iaXd3Rm5pSFQ1K05ENk9VTFFYcVE3aGpVegpkWHUxeCthU2xJREJZOTducVZUS29iYTg1cEgzVklvaVBUNnp1T2ZUc081eUlrV28yZFlDbmR6aWNRenZDS0VOCmpZOG1BZGtadFh0UStXMXkvQWFMQjhxQVpYTVc2VWZnT1NXSEIwem10NzFRVU5UVVg4N01peVBFSENJWHBISW4Kck9ZVit4UlJuUHhUTVlHQzRBVVA5V1Q0UlQ2WG9oQXNUbkpLMW1TWXlTRnc0akJWdURrdm9zRi9JZ21MUXVCagpkS3o1dmpCM1I3S3I2bXBVSENUVWxrV1N3bW0wRlZKUmRQWDN0QlI5Y255bFpXVlFLbmIxUkpUaFZWZ3NJeStXCit4ZGdlcEIzZG5zclZqQ1RLOXdQL2xKTlZZU0RId0lEQVFBQm8wSXdRREFPQmdOVkhROEJBZjhFQkFNQ0FxUXcKRHdZRFZSMFRBUUgvQkFVd0F3RUIvekFkQmdOVkhRNEVGZ1FVR0ZoQ3FVZ3V1ZytUM1o0a3loYlpVZEJWS0M4dwpEUVlKS29aSWh2Y05BUUVMQlFBRGdnRUJBS0wyeklFRDdQRXNaU0JZUWVGbisvTkt1bVRUQ05nQTdwR05WR0xQCmpURituMHNKQmlIeW9LMGpnWTV5TXBLS2ljcGRYK1hNSGxvMTg2QzFPOW1FbTN4N2VVanN2WmxZb3phYnFXY0kKWk93Z29ZcTNtV0VMU0RHdTBsVEVDekJiaXB2TUJhWm44bzZKcjh3bjhHL0FXV010d3dTN2pPK1N1SWlEUmRyaQpzT0wzVldldTNSUHV4am5zeWNpVGFoZW5RbWRuSldsOUZ4ZTBaeXBQMEhuMXNWM0Y1aXJaQXpkMjNtMGY5ZUhWCld3ZS90azh3VXFvZkdPMFhKVU1QRDEvV2t6NHBodTM0c0QrRWZDbEVaaXc2N3crYUVnWHRwK1g4SGVVT3lZWHEKSmxETkdES051MWdvUUtmN1l5WjNLWDJpZVpnb1hVcEJYM1ViVXkwZlJHQkM0Y0U9Ci0tLS0tRU5EIENFUlRJRklDQVRFLS0tLS0K
+---
+apiVersion: external-secrets.io/v1beta1
+kind: ExternalSecret
+metadata:
+  name: store-auth-token
+  namespace: metadata-store-secrets
+  annotations:
+    kapp.k14s.io/change-group: eso/metadata-store-secrets
+    kapp.k14s.io/change-rule.0: "upsert after upserting eso/secretstore"
+spec:
+  secretStoreRef:
+    name: tap-install-secrets
+    kind: SecretStore
+  refreshInterval: "1m"
+  data:
+    - secretKey: metadata-store-secrets
+      remoteRef: 
+       key: secret/dev/tapazfull/tap/metadata-store-secrets
+       property: AUTH_TOKEN
+---
+apiVersion: secretgen.carvel.dev/v1alpha1
+kind: SecretExport
+metadata:
+  name: store-ca-cert
+  namespace: metadata-store-secrets
+spec:
+  toNamespaces: 
+  - "*"
+---
+apiVersion: secretgen.carvel.dev/v1alpha1
+kind: SecretExport
+metadata:
+  name: store-auth-token
+  namespace: metadata-store-secrets
+spec:
+  toNamespaces: 
+  - "*"
