@@ -48,3 +48,11 @@ metadata:
 spec:
   toNamespaces: 
   - "*"
+---
+apiVersion: secretgen.carvel.dev/v1alpha1
+kind: SecretImport
+metadata:
+  name: store-auth-token
+  namespace: metadata-store-secrets
+spec:
+  fromNamespace: tap-install
