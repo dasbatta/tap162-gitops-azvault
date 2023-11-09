@@ -45,6 +45,8 @@ tap_install:
       #   secretName: tap-gui-cert-rehan
 
     metadata_store:
+      amr:
+        deploy: true
       ingress_enabled: "true"
       app_service_type: "ClusterIP"
       ns_for_export_app_cert: "*"
