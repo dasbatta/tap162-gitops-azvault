@@ -22,6 +22,9 @@ tap_install:
       image_scanner_template_name: image-vulnerability-scan-trivy
       image_scanning_cli:
         image: aquasec/trivy:0.42.1
+    amr: 
+      deploy_observer: true
+    
 #   grype:
 #      namespace: dev-test
 #      targetImagePullSecret: "registries-credentials"
@@ -77,6 +80,4 @@ tap_install:
     - apiserver.appliveview.tanzu.vmware.com
     - local-source-proxy.apps.tanzu.vmware.com
     - tap-gui.tanzu.vmware.com
-    amr: 
-      deploy_observer: true
       
