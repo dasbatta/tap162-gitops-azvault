@@ -19,6 +19,9 @@ tap_install:
     supply_chain: testing_scanning
     ootb_supply_chain_testing_scanning:
       external_delivery: true
+      image_scanner_template_name: image-vulnerability-scan-trivy
+      image_scanning_cli:
+        image: aquasec/trivy:0.42.1
 #   grype:
 #      namespace: dev-test
 #      targetImagePullSecret: "registries-credentials"
