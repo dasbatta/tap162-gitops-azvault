@@ -22,11 +22,40 @@ tap_install:
       image_scanner_template_name: image-vulnerability-scan-trivy
       image_scanning_cli:
         image: aquasec/trivy:0.42.1
-    metadata_store:
-      amr:
-        deploy: true    
+#    metadata_store:
+#      amr:
+#        deploy: true    
     amr: 
       deploy_observer: true
+      observer:
+        location: |
+          labels:
+          - key: environment
+            value: test
+        resync_period: "5h"
+        eventhandler:
+          endpoint: "https://amr-persister.view.tapmedas.com"
+          liveness_period_seconds: 25
+        ca_cert_data: |
+          -----BEGIN CERTIFICATE-----
+          MIIDHzCCAgegAwIBAgIRAPDV2v5IBTXUwQZrlasCjIIwDQYJKoZIhvcNAQELBQAw
+          KTEnMCUGA1UEAxMedGFwLWluZ3Jlc3Mtc2VsZnNpZ25lZC1yb290LWNhMB4XDTIz
+          MTAwMjA1MTA1NloXDTIzMTIzMTA1MTA1NlowKTEnMCUGA1UEAxMedGFwLWluZ3Jl
+          c3Mtc2VsZnNpZ25lZC1yb290LWNhMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIB
+          CgKCAQEA4vLhV2WUTT5rayDR1SqxMtqhK65Xp/biwwFniHT5+ND6OULQXqQ7hjUz
+          dXu1x+aSlIDBY97nqVTKoba85pH3VIoiPT6zuOfTsO5yIkWo2dYCndzicQzvCKEN
+          jY8mAdkZtXtQ+W1y/AaLB8qAZXMW6UfgOSWHB0zmt71QUNTUX87MiyPEHCIXpHIn
+          rOYV+xRRnPxTMYGC4AUP9WT4RT6XohAsTnJK1mSYySFw4jBVuDkvosF/IgmLQuBj
+          dKz5vjB3R7Kr6mpUHCTUlkWSwmm0FVJRdPX3tBR9cnylZWVQKnb1RJThVVgsIy+W
+          +xdgepB3dnsrVjCTK9wP/lJNVYSDHwIDAQABo0IwQDAOBgNVHQ8BAf8EBAMCAqQw
+          DwYDVR0TAQH/BAUwAwEB/zAdBgNVHQ4EFgQUGFhCqUguug+T3Z4kyhbZUdBVKC8w
+          DQYJKoZIhvcNAQELBQADggEBAKL2zIED7PEsZSBYQeFn+/NKumTTCNgA7pGNVGLP
+          jTF+n0sJBiHyoK0jgY5yMpKKicpdX+XMHlo186C1O9mEm3x7eUjsvZlYozabqWcI
+          ZOwgoYq3mWELSDGu0lTECzBbipvMBaZn8o6Jr8wn8G/AWWMtwwS7jO+SuIiDRdri
+          sOL3VWeu3RPuxjnsyciTahenQmdnJWl9Fxe0ZypP0Hn1sV3F5irZAzd23m0f9eHV
+          Wwe/tk8wUqofGO0XJUMPD1/Wkz4phu34sD+EfClEZiw67w+aEgXtp+X8HeUOyYXq
+          JlDNGDKNu1goQKf7YyZ3KX2ieZgoXUpBX3UbUy0fRGBC4cE=
+          -----END CERTIFICATE-----
     
 #   grype:
 #      namespace: dev-test
