@@ -142,8 +142,7 @@ spec:
         publisher: #@ data.values.params.image_scanning_service_account_publisher
       steps:
       - name: trivy-generate-report
-#        image: #@ data.values.params.image_scanning_cli.image
-         image: aquasec/trivy:0.42.1
+        image: aquasec/trivy:0.42.1
         env:
         - name: TRIVY_DB_REPOSITORY
           value: #@ data.values.params.trivy_db_repository
