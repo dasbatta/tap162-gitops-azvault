@@ -80,4 +80,5 @@ tap_install:
     - apiserver.appliveview.tanzu.vmware.com
     - local-source-proxy.apps.tanzu.vmware.com
     - tap-gui.tanzu.vmware.com
+    - metadata-store.apps.tanzu.vmware.com
       
