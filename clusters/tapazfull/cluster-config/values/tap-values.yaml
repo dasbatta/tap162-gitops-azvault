@@ -77,3 +77,6 @@ tap_install:
     - apiserver.appliveview.tanzu.vmware.com
     - local-source-proxy.apps.tanzu.vmware.com
     - tap-gui.tanzu.vmware.com
+    amr: 
+      deploy_observer: true
+      
