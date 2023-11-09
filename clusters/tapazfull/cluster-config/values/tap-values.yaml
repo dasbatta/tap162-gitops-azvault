@@ -19,17 +19,17 @@ tap_install:
     supply_chain: testing_scanning
     ootb_supply_chain_testing_scanning:
       external_delivery: true
-    grype:
-      namespace: dev-test
-      targetImagePullSecret: "registries-credentials"
-      metadataStore:
-        url: "https://metadata-store.view.tapmedas.com"
-        caSecret:
-          name: store-ca-cert
-          importFromNamespace: metadata-store-secrets
-        authSecret:
-          name: store-auth-token
-          importFromNamespace: metadata-store-secrets
+#   grype:
+#      namespace: dev-test
+#      targetImagePullSecret: "registries-credentials"
+#      metadataStore:
+#         url: "https://metadata-store.view.tapmedas.com"
+#         caSecret:
+#           name: store-ca-cert
+#           importFromNamespace: metadata-store-secrets
+#         authSecret:
+#           name: store-auth-token
+#           importFromNamespace: metadata-store-secrets
 
     scanning:
       metadataStore:
