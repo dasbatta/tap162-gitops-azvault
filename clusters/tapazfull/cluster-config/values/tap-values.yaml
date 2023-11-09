@@ -22,9 +22,9 @@ tap_install:
       image_scanner_template_name: image-vulnerability-scan-trivy
       image_scanning_cli:
         image: aquasec/trivy:0.42.1
-#    metadata_store:
-#      amr:
-#        deploy: true    
+    metadata_store:
+      amr:
+        deploy: true    
     amr: 
       deploy_observer: true
       observer:
