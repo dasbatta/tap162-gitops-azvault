@@ -31,7 +31,8 @@ tap_install:
         catalog:
           locations:
             - type: url
-              target: https://github.com/pakiheart/yel-catalog/blob/main/catalog-info.yaml
+##              target: https://github.com/pakiheart/yel-catalog/blob/main/catalog-info.yaml
+              target: https://github.com/sample-accelerators/tanzu-java-web-app/blob/main/catalog/catalog-info.yaml
         backend:
           baseUrl: https://tap-gui.view.tapmedas.com
           cors:
