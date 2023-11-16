@@ -31,8 +31,8 @@ tap_install:
         catalog:
           locations:
             - type: url
-              target: https://github.com/dasbatta/tap-catalog-bluefin/blob/dasworking/catalog-info.yaml
-##              target: https://github.com/pakiheart/yel-catalog/blob/main/catalog-info.yaml
+##              target: https://github.com/dasbatta/tap-catalog-bluefin/blob/dasworking/catalog-info.yaml
+              target: https://github.com/pakiheart/yel-catalog/blob/main/catalog-info.yaml
 
         backend:
           baseUrl: https://tap-gui.view.tapmedas.com
