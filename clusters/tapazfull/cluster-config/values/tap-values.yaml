@@ -105,6 +105,7 @@ tap_install:
           secretRef:
             name: sync-git
             namespace: tanzu-sync
+            create_export: true
         path: _ytt_lib/workload-creds
       overlay_secrets:
       - name: workload-git-ssh-overlay
