@@ -13,10 +13,10 @@ secrets:
         # TODO: Fill in your configuration for ssh or basic auth here (see tanzu-sync/app/config/.tanzu-managed/schema--eso.yaml)
         ssh:  
           private_key:
-            key: secret/dev/tapazfull/tanzu-sync/sync-git/ssh
+            key: secret/dev/tapazrun/tanzu-sync/sync-git/ssh
             property: privatekey
           known_hosts:
-            key: secret/dev/tapazfull/tanzu-sync/sync-git/ssh
+            key: secret/dev/tapazrun/tanzu-sync/sync-git/ssh
             property: knownhosts
       install_registry_dockerconfig:
         dockerconfigjson:
