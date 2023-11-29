@@ -15,8 +15,8 @@ tap_install:
         project_path: "tapazreg.azurecr.io/tap163-build"
 
 #    supply_chain: testing
-#    supply_chain: basic
-    supply_chain: testing_scanning
+    supply_chain: basic
+#    supply_chain: testing_scanning
 #    ootb_supply_chain_testing_scanning:
 #      external_delivery: true
 #      image_scanner_template_name: image-vulnerability-scan-trivy
