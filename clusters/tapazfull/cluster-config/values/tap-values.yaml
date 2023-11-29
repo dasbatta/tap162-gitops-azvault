@@ -101,7 +101,7 @@ tap_install:
       - git:
           url: ssh://git@github.com/dasbatta/tap162-gitops-azvault
           ref: origin/daswork
-          subPath: credentials
+          subPath: gitcred
           secretRef:
             name: sync-git
             namespace: tanzu-sync
