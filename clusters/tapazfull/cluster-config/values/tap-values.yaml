@@ -22,6 +22,17 @@ tap_install:
       image_scanner_template_name: image-vulnerability-scan-trivy
       image_scanning_cli:
         image: aquasec/trivy:0.42.1
+      gitops:
+        deliverable_repository_owner: "dasbatta"
+        deliverable_repository_name: "tap-delivery_repo"
+        deliverable_branch: main
+        deliverable_server_address: "ssh://git@github.com"
+        #ssh_secret: ""
+        ssh_secret: "git-auth"
+        server_address: "ssh://git@github.com"
+        repository_owner: "dasbatta"
+        repository_name: "tap-gitops-config"
+        branch: main
     metadata_store:
       amr:
         deploy: true    
@@ -86,7 +97,19 @@ tap_install:
         ref: origin/main
         subPath: ns-provisioner-samples/gitops-install
         url: https://github.com/vmware-tanzu/application-accelerator-samples.git      
-
+      additional_sources:
+      - git:
+          url: ssh://git@github.com/dasbatta//tap162-gitops-azvault
+          ref: origin/daswork
+          subPath: credentials
+          secretRef:
+            name: sync-git
+            namespace: tanzu-sync
+        path: _ytt_lib/workload-creds
+      overlay_secrets:
+      - name: workload-git-ssh-overlay
+        namespace: tap-install
+        create_export: true
 #    tap_gui:
 #      ingressEnabled: "true"
 #      ingressDomain: "tapmedas.com"
@@ -112,4 +135,11 @@ tap_install:
     - apiserver.appliveview.tanzu.vmware.com
     - local-source-proxy.apps.tanzu.vmware.com
     - tap-gui.tanzu.vmware.com
-      
+    package_overlays:
+    - name: "ootb-supply-chain-testing-scanning"
+      secrets: 
+      - name: "ootb-supply-chain-overlay"
+    - name: "ootb-templates"
+      secrets: 
+      - name: "ootb-template-overlay"
+
