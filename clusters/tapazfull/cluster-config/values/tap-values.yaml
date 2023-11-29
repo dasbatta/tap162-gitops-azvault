@@ -99,7 +99,7 @@ tap_install:
         url: https://github.com/vmware-tanzu/application-accelerator-samples.git      
       additional_sources:
       - git:
-          url: ssh://git@github.com/dasbatta//tap162-gitops-azvault
+          url: ssh://git@github.com/dasbatta/tap162-gitops-azvault
           ref: origin/daswork
           subPath: credentials
           secretRef:
