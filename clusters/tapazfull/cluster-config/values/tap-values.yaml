@@ -27,7 +27,6 @@ tap_install:
         deliverable_repository_name: "tap-delivery_repo"
         deliverable_branch: main
         deliverable_server_address: "ssh://git@github.com"
-        #ssh_secret: ""
         ssh_secret: "git-auth"
         server_address: "ssh://git@github.com"
         repository_owner: "dasbatta"
