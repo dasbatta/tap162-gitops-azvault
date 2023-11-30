@@ -84,7 +84,7 @@ tap_install:
         url: ""
     namespace_provisioner:
       import_data_values_secrets:
-      - name: workload-git-auth
+      - name: tenant-secrets
         namespace: tap-install
         create_export: true
       controller: false
