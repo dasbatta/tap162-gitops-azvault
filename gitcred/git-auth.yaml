@@ -10,4 +10,4 @@ type: kubernetes.io/ssh-auth
 stringData:
   ssh-privatekey: #@ data.values.imported.ssh_privatekey
   identity: #@ data.values.imported.ssh_privatekey
-  known_hosts: #@ data.values.imported.ssh_knownhosts
+  known_hosts: #@ data.values.imported.knownhosts
