@@ -97,16 +97,16 @@ tap_install:
         ref: origin/main
         subPath: ns-provisioner-samples/gitops-install
         url: https://github.com/vmware-tanzu/application-accelerator-samples.git      
-      additional_sources:
-      - git:
-          url: ssh://git@github.com/dasbatta/tap162-gitops-azvault
-          ref: origin/daswork
-          subPath: gitcred
-          secretRef:
-            name: sync-git
-            namespace: tanzu-sync
-            create_export: true
-        path: _ytt_lib/workload-creds
+#     additional_sources:
+#      - git:
+#          url: ssh://git@github.com/dasbatta/tap162-gitops-azvault
+#          ref: origin/daswork
+#          subPath: gitcred
+#          secretRef:
+#            name: sync-git
+#            namespace: tanzu-sync
+#            create_export: true
+#        path: _ytt_lib/workload-creds
       overlay_secrets:
       - name: workload-git-ssh-overlay
         namespace: tap-install
