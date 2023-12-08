@@ -10,7 +10,7 @@ spec:
       url: ssh://git@github.com:dasbatta/tap-delivery_repo.git
       ref: origin/main
       secretRef: 
-        name: git-auth
+        name: sync-git-post-install
   template:
   - ytt:
       ignoreUnknownComments: true
