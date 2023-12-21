@@ -3,7 +3,7 @@
 apiVersion: v1
 kind: Secret
 metadata:
-  name: git-auth
+  name: git-auth-devex
   annotations: 
     tekton.dev/git-0: github.com
 type: kubernetes.io/ssh-auth
