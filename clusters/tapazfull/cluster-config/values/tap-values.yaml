@@ -97,9 +97,16 @@ tap_install:
             cpu: 100m
             memory: 1Gi
       gitops_install:
-        ref: origin/main
-        subPath: ns-provisioner-samples/gitops-install
-        url: https://github.com/vmware-tanzu/application-accelerator-samples.git      
+        # ref: origin/main
+        # subPath: ns-provisioner-samples/gitops-install
+        # url: https://github.com/vmware-tanzu/application-accelerator-samples.git
+        url: ssh://git@github.com/dasbatta/tap162-gitops-azvault
+        ref: origin/daswork
+        subPath: namespaces
+        secretRef:
+          name: sync-git
+          namespace: tanzu-sync  
+          create_export: true    
       additional_sources:
       - git:
           url: ssh://git@github.com/dasbatta/tap162-gitops-azvault
