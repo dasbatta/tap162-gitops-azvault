@@ -18,7 +18,7 @@ tap_install:
     tap_gui:
 #      tls:
 #        namespace: tap-install
-#        secretName: tap-gui-cert-rehan
+#        secretName: tap-gui-cert
       ingressEnabled: "true"
       ingressDomain: "view.tapmedas.com"
       metadataStoreAutoconfiguration: true
@@ -47,7 +47,7 @@ tap_install:
       ingressEnabled: true
       # tls:
       #   namespace: tap-install
-      #   secretName: tap-gui-cert-rehan
+      #   secretName: tap-gui-cert
 
     metadata_store:
       amr:
@@ -55,6 +55,16 @@ tap_install:
       ingress_enabled: "true"
       app_service_type: "ClusterIP"
       ns_for_export_app_cert: "*"
+      db_host: scsttap.postgres.database.azure.com
+      db_user: scsttap
+      db_password: "tapadmin!123"
+      db_name: 'postgres'
+      db_port: '5432'
+      db_max_open_conns: 10
+      db_max_idle_conns: 100
+      db_conn_max_lifetime: 60
+      deploy_internal_db: 'false'
+      db_sslmode: require
       # tls:
       #   namespace: tap-install
-      #   secretName: tap-gui-cert-rehan
+      #   secretName: tap-gui-cert
