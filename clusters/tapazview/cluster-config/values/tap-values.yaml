@@ -50,6 +50,7 @@ tap_install:
       #   secretName: tap-gui-cert
 
     metadata_store:
+      auto_correct_db_indexes: true
       amr:
         deploy: true
       ingress_enabled: "true"
