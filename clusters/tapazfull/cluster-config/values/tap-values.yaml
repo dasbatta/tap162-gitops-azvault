@@ -142,7 +142,6 @@ tap_install:
     - learningcenter.tanzu.vmware.com
     - workshops.learningcenter.tanzu.vmware.com
     - api-portal.tanzu.vmware.com
-    - accelerator.apps.tanzu.vmware.com
     - apiserver.appliveview.tanzu.vmware.com
     - local-source-proxy.apps.tanzu.vmware.com
     - tap-gui.tanzu.vmware.com
