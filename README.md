@@ -57,3 +57,19 @@ tanzu apps workload apply tanzu-java-web-app \
 ---- 
 Scan 2.0 - Gitops
 tanzu package available get app-scanning.apps.tanzu.vmware.com/0.1.0-beta.137 --values-schema --namespace tap-install
+
+----
+Jan 2nd 2024, Pre-requisites to setup TAP on AKS for Fiserv 
+
+- Executed Tanzu cluster essentials on both LOWERS clusters tapb & mt1
+
+-   We need tls wildcard certs to be provisoned for both clusters 
+
+**** Add the files (Secret and tlscertdeligation) under clusters/<clustername>/tanzu-sync/app/config/.tanzu-managed, 
+
+- Create a tls secret cluster-external-cert-tls-cert in tap-install namespace 
+- Create a tlscertificatedelegations for the wildcard cert 
+- Update the tap-values >> cnrs to use the secret as a default certificate 
+
+- Get the DNS entry for Contour IPs pointing to wildcard dns entry for both lower clusters
+
