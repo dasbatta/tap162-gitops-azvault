@@ -151,4 +151,8 @@ tap_install:
     - name: "ootb-templates"
       secrets: 
       - name: "ootb-template-overlay"
+    api_auto_registration:
+      tap_gui_url: https://tap-gui.view.tapmedas.com
+      cluster_name: tapazview
+    
 
