@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: ootb-conventions-templates-overlay
+  namespace: tap-install
+stringData:
+  add-volume-support.yaml: |
+    #@ load("@ytt:overlay", "overlay")
+    #@ load("@ytt:data", "data")
+    #@ load("@ytt:yaml", "yaml")
+
+    #@ def convention_template():
+    kind: ClusterConfigTemplate
+    metadata:
+      name: convention-template
+    #@ end
+
+    #@overlay/match by=overlay.subset(convention_template())
+    ---
+    spec:
+      #@overlay/replace via=lambda left, right: left + right
+      ytt: "          #@ if/end param(\"volumeMounts\"):\n          volumeMounts: #@ param(\"volumeMounts\")\n      #@ if/end param(\"volumes\"):\n      volumes: #@ param(\"volumes\")"
