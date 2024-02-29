@@ -133,4 +133,9 @@ tap_install:
     - api-portal.tanzu.vmware.com
     - local-source-proxy.apps.tanzu.vmware.com
     - tap-gui.tanzu.vmware.com
+    package_overlays:
+    - name: "ootb-templates"
+      secrets:
+        - name: "ootb-conventions-templates-overlay"
+
       
