@@ -1,6 +1,6 @@
 tap_install:
   values:
-    profile: run
+    profile: full
     ceip_policy_disclosed: true
     # Tanzu Application Platform values go here.
 
@@ -16,6 +16,9 @@ tap_install:
 
 #    supply_chain: testing
     supply_chain: basic
+    ootb_supply_chain_basic:
+      external_delivery: true
+
 #    supply_chain: testing_scanning
 #    ootb_supply_chain_testing_scanning:
 #      external_delivery: true
@@ -25,6 +28,9 @@ tap_install:
     # metadata_store:
     #   amr:
     #     deploy: true    
+    metadata_store:
+      amr:
+        deploy: true    
     amr: 
       deploy_observer: true
       observer:
@@ -73,10 +79,10 @@ tap_install:
       metadataStore:
         url: ""
     namespace_provisioner:
-      import_data_values_secrets:
-      - name: tenant-secrets
-        namespace: tap-install
-        create_export: true
+#      import_data_values_secrets:
+#      - name: tenant-secrets
+#        namespace: tap-install
+#        create_export: true
       controller: false
       default_parameters:
         limits:
@@ -90,20 +96,20 @@ tap_install:
         ref: origin/main
         subPath: ns-provisioner-samples/gitops-install
         url: https://github.com/vmware-tanzu/application-accelerator-samples.git      
-      additional_sources:
-      - git:
-          url: ssh://git@github.com/dasbatta/tap162-gitops-azvault
-          ref: origin/daswork
-          subPath: gitcred
-          secretRef:
-            name: sync-git
-            namespace: tanzu-sync
-            create_export: true
-        path: _ytt_lib/workload-creds
-      overlay_secrets:
-      - name: workload-git-ssh-overlay
-        namespace: tap-install
-        create_export: true
+      # additional_sources:
+      # - git:
+      #     url: ssh://git@github.com/dasbatta/tap162-gitops-azvault
+      #     ref: origin/daswork
+      #     subPath: gitcred
+      #     secretRef:
+      #       name: sync-git
+      #       namespace: tanzu-sync
+      #       create_export: true
+      #   path: _ytt_lib/workload-creds
+      # overlay_secrets:
+      # - name: workload-git-ssh-overlay
+      #   namespace: tap-install
+      #   create_export: true
 #    tap_gui:
 #      ingressEnabled: "true"
 #      ingressDomain: "tapmedas.com"
@@ -125,7 +131,6 @@ tap_install:
     - learningcenter.tanzu.vmware.com
     - workshops.learningcenter.tanzu.vmware.com
     - api-portal.tanzu.vmware.com
-    - accelerator.apps.tanzu.vmware.com
     - local-source-proxy.apps.tanzu.vmware.com
     - tap-gui.tanzu.vmware.com
       
