@@ -61,7 +61,8 @@ tap_install:
           foEZbgf5yC1K4bjbwQdFSwlhZWHqnUk/z7iiPAeQn5rsYQhLfYXUupfM3i3XSFGz
           2YPjnOsIbil38u4GB+QVvEML8SGdQqmHBBsiZkOX/AJso7VMh91bOKOvnsXUUuEM
           eBAa5mK2C/I519xzX+0RejnGi5VX8TmJ3y00t7jw7A1cKjA=
-          -----END CERTIFICATE-----    
+          -----END CERTIFICATE-----
+  
 #   grype:
 #      namespace: dev-test
 #      targetImagePullSecret: "registries-credentials"
