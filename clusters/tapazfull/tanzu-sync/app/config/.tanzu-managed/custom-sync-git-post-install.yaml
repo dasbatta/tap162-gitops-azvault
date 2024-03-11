@@ -20,7 +20,7 @@ spec:
   secretStoreRef:
     name: tanzu-sync-secrets
     kind: SecretStore
-  refreshInterval: "1m"
+  refreshInterval: "0m"
   target:
     type: #@ "kubernetes.io/ssh-auth" if ssh_selected() else "kubernetes.io/basic-auth"
   data:
