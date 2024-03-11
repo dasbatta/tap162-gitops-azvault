@@ -12,7 +12,7 @@ tap_install:
       ingress_domain: "tapmedas.com"
 #      ingress_issuer: "selfsigned-cluster-issuer"
       image_registry:
-        project_path: "tapazreg.azurecr.io/tap163-build"
+        project_path: "tapazreg.azurecr.io/tap174-build"
 ## testing commit
 #    supply_chain: testing
 #    supply_chain: basic
@@ -33,19 +33,19 @@ tap_install:
         repository_name: "tap-gitops-config"
         branch: main
     metadata_store:
-      amr:
-        deploy: true    
+      # amr:
+      #   deploy: true    
     amr: 
-      deploy_observer: true
+      # deploy_observer: true
       observer:
         location: |
           labels:
           - key: environment
             value: test
         resync_period: "5h"
-        eventhandler:
-          endpoint: "https://amr-persister.view.tapmedas.com"
-          liveness_period_seconds: 25
+        cloudevent_handler:
+          endpoint: "https://amr-cloudevent-handler.view.tapmedas.com"
+          liveness_period_seconds: 10
         ca_cert_data: |
           -----BEGIN CERTIFICATE-----
           MIIDHzCCAgegAwIBAgIRAM+F+5fzyZzukbVQrJ4/24swDQYJKoZIhvcNAQELBQAw
@@ -66,6 +66,16 @@ tap_install:
           2YPjnOsIbil38u4GB+QVvEML8SGdQqmHBBsiZkOX/AJso7VMh91bOKOvnsXUUuEM
           eBAa5mK2C/I519xzX+0RejnGi5VX8TmJ3y00t7jw7A1cKjA=
           -----END CERTIFICATE-----
+        auth:
+          kubernetes_service_accounts:
+            enabled: true
+            autoconfigured: true
+            secret:
+              ref: "amr-observer-edit-token"
+              value: ""
+        deployed_through_tmc: false
+        max_concurrent_reconciles:
+          image_vulnerability_scans: 1
 ## testing    
 #   grype:
 #      namespace: dev-test
