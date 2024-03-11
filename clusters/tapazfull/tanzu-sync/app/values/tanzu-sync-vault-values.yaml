@@ -18,6 +18,7 @@ secrets:
           known_hosts:
             key: secret/dev/tapazfull/tanzu-sync/sync-git/ssh
             property: knownhosts
+
       install_registry_dockerconfig:
         dockerconfigjson:
           key: secret/dev/tapazfull/tanzu-sync/install-registry-dockerconfig
