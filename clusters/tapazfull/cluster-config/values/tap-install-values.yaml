@@ -1,6 +1,0 @@
-tap_install:
-  package_repository:
-    oci_repository: tapazreg.azurecr.io/tap174-images/tap-packages
-  version:
-    package_repo_bundle_tag: "1.7.4" # Populate these values with the latest patch version.
-    package_version: "1.7.4"
