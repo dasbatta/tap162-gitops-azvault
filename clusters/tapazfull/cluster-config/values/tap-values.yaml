@@ -66,16 +66,16 @@ tap_install:
           2YPjnOsIbil38u4GB+QVvEML8SGdQqmHBBsiZkOX/AJso7VMh91bOKOvnsXUUuEM
           eBAa5mK2C/I519xzX+0RejnGi5VX8TmJ3y00t7jw7A1cKjA=
           -----END CERTIFICATE-----
-        auth:
-          kubernetes_service_accounts:
-            enabled: true
-            autoconfigured: true
-            secret:
-              ref: "amr-observer-edit-token"
-              value: ""
-        deployed_through_tmc: false
-        max_concurrent_reconciles:
-          image_vulnerability_scans: 1
+        # auth:
+        #   kubernetes_service_accounts:
+        #     enabled: true
+        #     autoconfigured: true
+        #     secret:
+        #       ref: "amr-observer-edit-token"
+        #       value: ""
+        # deployed_through_tmc: false
+        # max_concurrent_reconciles:
+        #   image_vulnerability_scans: 1
 ## testing    
 #   grype:
 #      namespace: dev-test
