@@ -19,7 +19,4 @@ error_msg="Expected env var to be set, but was not."
 : "${VAULT_ADDR?$error_msg}"
 : "${CLUSTER_NAME?$error_msg}"
 
-k8s_api_server="$(kubectl config view --minify --output jsonpath="{.clusters[*].cluster.server}")"
-k8s_cacert="$(kubectl config view --raw --output jsonpath="{.clusters[*].cluster.certificate-authority-data}" | base64 --decode)"
-
-vault delete auth/$CLUSTER_NAME/config
+vault auth disable $CLUSTER_NAME 
