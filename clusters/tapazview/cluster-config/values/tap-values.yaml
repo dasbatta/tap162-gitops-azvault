@@ -51,8 +51,8 @@ tap_install:
 
     metadata_store:
       auto_correct_db_indexes: true
-      amr:
-        deploy: true
+      # amr:
+      #   deploy: true
       ingress_enabled: "true"
       app_service_type: "ClusterIP"
       ns_for_export_app_cert: "*"
