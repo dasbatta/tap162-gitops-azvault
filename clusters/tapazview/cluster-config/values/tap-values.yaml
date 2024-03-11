@@ -8,7 +8,7 @@ tap_install:
       ingress_domain: view.tapmedas.com
       #ingress_issuer: letsencrypt-production
       image_registry:
-        project_path: "tapazreg.azurecr.io/tap163-build"
+        project_path: "tapazreg.azurecr.io/tap174-build"
       
     contour:
       envoy:
