@@ -1,0 +1,9 @@
+apiVersion: packaging.carvel.dev/v1alpha1
+kind: PackageRepository
+metadata:
+  name: full-deps-package-repo
+  namespace: tap-install
+spec:
+  fetch:
+    imgpkgBundle:
+      image: tapazreg.azurecr.io/tap174-images/full-deps-package-repo:1.7.5
