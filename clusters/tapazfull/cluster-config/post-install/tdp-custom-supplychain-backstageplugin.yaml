@@ -20,7 +20,7 @@ spec:
         - name: registry
           default:
             ca_cert_data: ""
-            repository: tap163-build/workloads
+            repository: tap174-build/workloads
             server: tapazreg.azurecr.io
         - default: default
           name: clusterBuilder
