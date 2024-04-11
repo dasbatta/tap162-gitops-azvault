@@ -13,7 +13,8 @@ tap_install:
 #      ingress_issuer: "selfsigned-cluster-issuer"
       image_registry:
         project_path: "tapazreg.azurecr.io/tap174-build"
-
+    buildservice:
+      exclude_dependencies: true
     # supply_chain: testing
     supply_chain: basic
     ootb_supply_chain_basic:
@@ -59,5 +60,4 @@ tap_install:
     - apiserver.appliveview.tanzu.vmware.com
     - local-source-proxy.apps.tanzu.vmware.com
     - tap-gui.tanzu.vmware.com
-    - base-jammy-stack.buildpacks.tanzu.vmware.com
-    - base-jammy-stack-lite.buildpacks.tanzu.vmware.com
+    
