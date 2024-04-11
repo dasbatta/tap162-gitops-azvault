@@ -59,3 +59,5 @@ tap_install:
     - apiserver.appliveview.tanzu.vmware.com
     - local-source-proxy.apps.tanzu.vmware.com
     - tap-gui.tanzu.vmware.com
+    - base-jammy-stack.buildpacks.tanzu.vmware.com
+    - base-jammy-stack-lite.buildpacks.tanzu.vmware.com
