@@ -10,7 +10,7 @@ metadata:
     kapp.k14s.io/change-rule.1: "delete before deleting pkgr"
     packaging.carvel.dev/downgradable: ""
 spec:
-  serviceAccountName: tap-tap-install-sa
+  serviceAccountName: tap-install-sa
   packageRef:
     refName: full-deps.buildservice.tanzu.vmware.com
     versionSelection:
