@@ -25,7 +25,7 @@ stringData:
         kind: Namespace
         #@ end
     
-        #@overlay/match by=overlay.subset(match_namespace()), expects="0+"
+        #@overlay/match by=overlay.subset(match_namespace()), expects="1+"
         ---
         metadata:
           #@overlay/match missing_ok=True
