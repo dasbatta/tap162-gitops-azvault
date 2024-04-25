@@ -31,14 +31,13 @@ stringData:
           #@overlay/match missing_ok=True
           labels:
             #@overlay/match missing_ok=True
-            apm_id: APM1234
-            uaid: UAID-1234
+            apm_id: APM0009113
+            uaid: UAID-11761
           #@overlay/match missing_ok=True
           annotations:
             #@overlay/match missing_ok=True
-            apm_id: APM1234
-            uaid: UAID-1234
-
+            apm_id: APM0009113
+            uaid: UAID-11761
     #@overlay/match by=overlay.subset(match_packageinstall()), expects="1+"
     ---
     metadata:
