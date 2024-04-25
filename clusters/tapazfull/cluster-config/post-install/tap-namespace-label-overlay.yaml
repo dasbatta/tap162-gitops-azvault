@@ -16,7 +16,7 @@ stringData:
     kind: Secret
     metadata:
       name: label-namespaces-overlay
-      namespace: tap-install #! TODO: configurable
+      namespace: tap-install
     stringData:
       label-namespaces.yaml: |
         #@ load("@ytt:overlay", "overlay")
