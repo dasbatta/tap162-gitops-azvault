@@ -10,14 +10,18 @@ tap_install:
           type: LoadBalancer
     shared:
       ingress_domain: "tapmedas.com"
-      ingress_issuer: "selfsigned-cluster-issuer"
+#      ingress_issuer: "selfsigned-cluster-issuer"
       image_registry:
-        project_path: "tapazreg.azurecr.io/tap163-build"
-
+        project_path: "tapazreg.azurecr.io/tap174-build"
+    buildservice:
+      exclude_dependencies: true
+    # supply_chain: testing
     supply_chain: basic
-
+    ootb_supply_chain_basic:
+      external_delivery: true
+#    supply_chain: testing_scanning
     namespace_provisioner:
-      controller: true
+      controller: false
       default_parameters:
         limits:
           default:
@@ -26,23 +30,34 @@ tap_install:
           defaultRequest:
             cpu: 100m
             memory: 1Gi
-             
-    tap_gui:
-      ingressEnabled: "true"
-      ingressDomain: "tapmedas.com"
-      app_config:
-        app:
-          baseUrl: https://tap-gui.lab.tapmedas.com
-        catalog:
-          locations:
-            - type: url
-              target: https://github.com/sample-accelerators/tanzu-java-web-app/blob/main/catalog/catalog-info.yaml
-        backend:
-          baseUrl: https://tap-gui.lab.tapmedas.com
-          cors:
-            origin: https://tap-gui.lab.tapmedas.com        
+      gitops_install:
+        ref: origin/main
+        subPath: ns-provisioner-samples/gitops-install
+        url: https://github.com/vmware-tanzu/application-accelerator-samples.git      
+
+#    tap_gui:
+#      ingressEnabled: "true"
+#      ingressDomain: "tapmedas.com"
+#      app_config:
+#        auth:
+#          allowGuestAccess: true      
+#        app:
+#          baseUrl: https://tap-gui.lab.tapmedas.com
+#        catalog:
+#          locations:
+#            - type: url
+#              target: https://github.com/sample-accelerators/tanzu-java-web-app/blob/main/catalog/catalog-info.yaml
+#        backend:
+#          baseUrl: https://tap-gui.lab.tapmedas.com
+#          cors:
+#            origin: https://tap-gui.lab.tapmedas.com        
     
     excluded_packages:
     - learningcenter.tanzu.vmware.com
     - workshops.learningcenter.tanzu.vmware.com
-    - tap-telemetry.tanzu.vmware.com
+    - api-portal.tanzu.vmware.com
+    - accelerator.apps.tanzu.vmware.com
+    - apiserver.appliveview.tanzu.vmware.com
+    - local-source-proxy.apps.tanzu.vmware.com
+    - tap-gui.tanzu.vmware.com
+    

@@ -1,0 +1,8 @@
+#@data/values
+---
+namespaces:
+- name: devexdemo
+  supply_chain_service_account:
+    secrets:
+    - git-auth-devex
+

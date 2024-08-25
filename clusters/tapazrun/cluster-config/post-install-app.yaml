@@ -1,0 +1,22 @@
+apiVersion: kappctrl.k14s.io/v1alpha1
+kind: App
+metadata:
+  name: post-install-app
+  namespace: tap-install
+spec:
+  serviceAccountName: tap-install-sa
+  fetch:
+  - git:
+      url: git@github.com:dasbatta/tap162-gitops-azvault.git
+      ref: origin/daswork
+      secretRef: 
+        name: sync-git-post-install
+      subPath: clusters/tapazrun/cluster-config/post-install
+  template:
+  - ytt: {}
+  deploy:
+  - kapp:
+      rawOptions:
+#      - --dangerous-override-ownership-of-existing-resources=true
+      - --dangerous-allow-empty-list-of-resources=true
+      - --diff-changes=true
