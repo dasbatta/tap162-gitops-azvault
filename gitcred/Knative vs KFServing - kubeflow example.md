@@ -1,25 +1,25 @@
-### **🟦 Knative (Kubernetes-native serverless platform)**
+### ** Knative (Kubernetes-native serverless platform)**
 
 **Knative** simplifies deploying and scaling applications on Kubernetes, especially for stateless microservices or event-driven workloads.  
 
 ### 🚀 **Key Features:**  
-✅ **Autoscaling** — Automatically scales your pods to zero when idle and scales up based on demand.  
-✅ **Traffic Splitting** — Handles blue-green deployments, canary releases, and A/B testing.  
-✅ **Event-Driven** — Uses event sources to trigger workloads in a serverless fashion.  
+**Autoscaling** — Automatically scales your pods to zero when idle and scales up based on demand.  
+**Traffic Splitting** — Handles blue-green deployments, canary releases, and A/B testing.  
+**Event-Driven** — Uses event sources to trigger workloads in a serverless fashion.  
 
 ### 🏗️ **How it Fits In:**  
 Imagine you have a web app that sees minimal traffic at night. Knative scales the pods down to zero and only spins them back up when requests arrive — saving resources and costs.
 
 ---
 
-### **🟩 KFServing (Now KServe)**
+### ** KFServing (Now KServe)**
 **KFServing** (now called **KServe**) is an **AI/ML model serving framework** designed for Kubernetes. It simplifies deploying machine learning models by abstracting complex Kubernetes configurations.  
 
 ### 🚀 **Key Features:**  
-✅ **Model Versioning** — Easily manage multiple model versions.  
-✅ **Autoscaling (with Knative)** — Scales model inference pods up/down based on request load.  
-✅ **Predictive Routing** — Routes requests intelligently between model versions for canary testing.  
-✅ **Multi-framework Support** — Supports **TensorFlow**, **PyTorch**, **XGBoost**, **Triton**, etc.  
+ **Model Versioning** — Easily manage multiple model versions.  
+ **Autoscaling (with Knative)** — Scales model inference pods up/down based on request load.  
+ **Predictive Routing** — Routes requests intelligently between model versions for canary testing.  
+ **Multi-framework Support** — Supports **TensorFlow**, **PyTorch**, **XGBoost**, **Triton**, etc.  
 
 ### 🏗️ **How it Fits In:**  
 Suppose you have a computer vision model in TensorFlow. Instead of writing complex Kubernetes YAML for inference, you define a simple `InferenceService` CRD in KServe. It handles scaling, request routing, and model versioning for you.  
